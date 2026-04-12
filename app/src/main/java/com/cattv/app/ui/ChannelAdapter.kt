@@ -16,18 +16,15 @@ class ChannelAdapter(
     inner class ViewHolder(val binding: ItemChannelBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemChannelBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return ViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(ItemChannelBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val channel = channels[position]
         holder.binding.apply {
             tvChannelName.text = channel.name
             tvCategory.text = channel.category
+            tvCountry.text = "${channel.countryName}"
             Glide.with(ivLogo.context)
                 .load(channel.logoUrl)
                 .placeholder(R.drawable.ic_tv)

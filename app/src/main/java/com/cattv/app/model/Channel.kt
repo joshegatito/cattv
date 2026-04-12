@@ -5,5 +5,7 @@ data class Channel(
     val name: String,
     val url: String,
     val category: String,
-    val logoUrl: String = ""
+    val logoUrl: String = "",
+    val countryCode: String = "",
+    val countryName: String = ""
 )

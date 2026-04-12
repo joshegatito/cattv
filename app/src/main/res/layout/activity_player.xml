@@ -6,24 +6,22 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
-    <!-- Video Player -->
     <androidx.media3.ui.PlayerView
         android:id="@+id/playerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:use_controller="true"
-        app:show_timeout="3000"
+        app:show_timeout="4000"
         app:resize_mode="fit"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Loading spinner -->
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:indeterminateTint="@color/accent"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,31 +29,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Nombre del canal (overlay) -->
-    <TextView
-        android:id="@+id/tvChannelName"
-        android:layout_width="wrap_content"
+    <!-- Top overlay bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:padding="8dp"
-        android:background="#80000000"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="#99000000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- Botón atrás -->
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_back"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:tint="@android:color/white"
-        android:contentDescription="Volver"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@android:color/white"
+            android:contentDescription="Volver" />
+
+        <ImageView
+            android:id="@+id/ivChannelLogo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_tv" />
+
+        <TextView
+            android:id="@+id/tvChannelName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
